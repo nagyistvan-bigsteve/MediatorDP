@@ -24,8 +24,8 @@ namespace MediatorDP
         {
             if (canLand)
                 {
-                tower.HasLanded(this);
                 canLand = false;
+                tower.HasLanded(this);               
             }
             else
                 Console.WriteLine($"{Name} you can't land");
@@ -35,8 +35,8 @@ namespace MediatorDP
         {
             if (canTakeOff)
             {
-                tower.HasTakeOff(this);
                 canTakeOff = false;
+                tower.HasTakeOff(this);                
             }
             else
                 Console.WriteLine($"{Name} you can't take off");
@@ -50,6 +50,11 @@ namespace MediatorDP
         public void RequestTakeOff()
         {
             canTakeOff = tower.CanTakeOff(this);
+        }
+
+        public override string ToString()
+        {
+            return $"{this.Name} -> Land: {this.canLand}, Take off:{this.canTakeOff}";
         }
     }
 }
